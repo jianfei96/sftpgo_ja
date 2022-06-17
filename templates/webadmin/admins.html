@@ -23,7 +23,7 @@
 
 <div class="card shadow mb-4">
     <div class="card-header py-3">
-        <h6 class="m-0 font-weight-bold text-primary">View and manage admins</h6>
+        <h6 class="m-0 font-weight-bold text-primary">管理者の表示と管理</h6>
     </div>
     <div class="card-body">
         <div class="table-responsive">
@@ -31,14 +31,14 @@
                 <thead>
                     <tr>
                         <th>ID</th>
-                        <th>Username</th>
-                        <th>Status</th>
-                        <th>Permissions</th>
-                        <th>Last login</th>
+                        <th>ユーザー名</th>
+                        <th>ステータス</th>
+                        <th>権限</th>
+                        <th>前回のログイン</th>
                         <th>MFA</th>
-                        <th>Allow list</th>
-                        <th>Email</th>
-                        <th>Description</th>
+                        <th>許可リスト</th>
+                        <th>電子メール</th>
+                        <th>説明</th>
                     </tr>
                 </thead>
                 <tbody>
@@ -46,10 +46,10 @@
                     <tr>
                         <td>{{.ID}}</td>
                         <td>{{.Username}}</td>
-                        <td>{{if eq .Status 1 }}Active{{else}}Inactive{{end}}</td>
+                        <td>{{if eq .Status 1 }}活性{{else}}非活性{{end}}</td>
                         <td>{{.GetPermissionsAsString}}</td>
                         <td>{{.GetLastLoginAsString}}</td>
-                        <td>{{if .Filters.TOTPConfig.Enabled }}Enabled{{else}}Disabled{{end}}</td>
+                        <td>{{if .Filters.TOTPConfig.Enabled }}有効{{else}}無効{{end}}</td>
                         <td>{{.GetAllowedIPAsString}}</td>
                         <td>{{.Email}}</td>
                         <td>{{.Description}}</td>
@@ -71,19 +71,19 @@
         <div class="modal-content">
             <div class="modal-header">
                 <h5 class="modal-title" id="deleteModalLabel">
-                    Confirmation required
+                    確認が必要です
                 </h5>
                 <button class="close" type="button" data-dismiss="modal" aria-label="Close">
                     <span aria-hidden="true">&times;</span>
                 </button>
             </div>
-            <div class="modal-body">Do you want to delete the selected admin?</div>
+            <div class="modal-body">選択した管理者を削除しますか?</div>
             <div class="modal-footer">
                 <button class="btn btn-secondary" type="button" data-dismiss="modal">
-                    Cancel
+                    キャンセル
                 </button>
                 <a class="btn btn-warning" href="#" onclick="deleteAction()">
-                    Delete
+                    削除
                 </a>
             </div>
         </div>

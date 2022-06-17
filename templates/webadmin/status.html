@@ -13,23 +13,23 @@
             <div class="card-body">
                 <h6 class="card-title font-weight-bold">SFTP/SSH server</h6>
                 <p class="card-text">
-                    Status: {{ if .Status.SSH.IsActive}}"Started"{{else}}"Stopped"{{end}}
+                    ステータス: {{ if .Status.SSH.IsActive}}"始まった"{{else}}"止まった"{{end}}
                     {{if .Status.SSH.IsActive}}
                     <br>
                     {{range .Status.SSH.Bindings}}
                     <br>
-                    Address: "{{.GetAddress}}" {{if .HasProxy}}Proxy: ON{{end}}
+                    アドレス: "{{.GetAddress}}" {{if .HasProxy}}プロキシ: オン{{end}}
                     <br>
                     {{end}}
-                    Accepted authentications: "{{.Status.SSH.GetSupportedAuthsAsString}}"
+                    受け入れられた認証: "{{.Status.SSH.GetSupportedAuthsAsString}}"
                     <br>
-                    Accepted commands: "{{.Status.SSH.GetSSHCommandsAsString}}"
+                    受け入れられたコマンド: "{{.Status.SSH.GetSSHCommandsAsString}}"
                     <br>
                     {{range .Status.SSH.HostKeys}}
                     <br>
-                    Host Key: "{{.Path}}"
+                    ホストキー: "{{.Path}}"
                     <br>
-                    Fingerprint: "{{.Fingerprint}}"
+                    指紋: "{{.Fingerprint}}"
                     <br>
                     {{end}}
                     {{end}}
@@ -39,28 +39,28 @@
 
         <div class="card mb-4 {{ if .Status.FTP.IsActive}}border-left-success{{else}}border-left-info{{end}}">
             <div class="card-body">
-                <h6 class="card-title font-weight-bold">FTP server</h6>
+                <h6 class="card-title font-weight-bold">FTPサーバー</h6>
                 <p class="card-text">
-                    Status: {{ if .Status.FTP.IsActive}}"Started"{{else}}"Stopped"{{end}}
+                    Status: {{ if .Status.FTP.IsActive}}"始まった"{{else}}"止まった"{{end}}
                     {{if .Status.FTP.IsActive}}
                     <br>
                     {{range .Status.FTP.Bindings}}
                     <br>
-                    Address: "{{.GetAddress}}" {{if .HasProxy}}Proxy: ON{{end}}
+                    アドレス: "{{.GetAddress}}" {{if .HasProxy}}プロキシ: オン{{end}}
                     <br>
                     TLS: "{{.GetTLSDescription}}"
                     {{if .ForcePassiveIP}}
                     <br>
-                    Passive IP: {{.ForcePassiveIP}}
+                    パッシブIP: {{.ForcePassiveIP}}
                     {{end}}
                     <br>
                     {{range .PassiveIPOverrides}}
-                    Passive IP: {{.IP}} for networks: {{.GetNetworksAsString}}
+                    パッシブIP: {{.IP}} ネットワーク: {{.GetNetworksAsString}}
                     <br>
                     {{end}}
                     {{end}}
                     <br>
-                    Passive port range: "{{.Status.FTP.PassivePortRange.Start}}-{{.Status.FTP.PassivePortRange.End}}"
+                    パッシブポート範囲: "{{.Status.FTP.PassivePortRange.Start}}-{{.Status.FTP.PassivePortRange.End}}"
                     {{end}}
                 </p>
             </div>
@@ -68,16 +68,16 @@
 
         <div class="card mb-4 {{ if .Status.WebDAV.IsActive}}border-left-success{{else}}border-left-info{{end}}">
             <div class="card-body">
-                <h6 class="card-title font-weight-bold">WebDAV server</h6>
+                <h6 class="card-title font-weight-bold">WebDAVサーバー</h6>
                 <p class="card-text">
-                    Status: {{ if .Status.WebDAV.IsActive}}"Started"{{else}}"Stopped"{{end}}
+                    ステータス: {{ if .Status.WebDAV.IsActive}}"始まった"{{else}}"止まった"{{end}}
                     {{if .Status.WebDAV.IsActive}}
                     <br>
                     {{range .Status.WebDAV.Bindings}}
                     <br>
-                    Address: "{{.GetAddress}}"
+                    アドレス: "{{.GetAddress}}"
                     <br>
-                    Protocol: {{if .EnableHTTPS}} HTTPS {{else}} HTTP {{end}}
+                    プロトコル: {{if .EnableHTTPS}} HTTPS {{else}} HTTP {{end}}
                     <br>
                     {{end}}
                     {{end}}
@@ -89,23 +89,23 @@
             <div class="card-body">
                 <h6 class="card-title font-weight-bold">Defender</h6>
                 <p class="card-text">
-                    Status: {{ if .Status.Defender.IsActive}}"Enabled"{{else}}"Disabled"{{end}}
+                    ステータス: {{ if .Status.Defender.IsActive}}"有効"{{else}}"無効"{{end}}
                 </p>
             </div>
         </div>
 
         <div class="card mb-4 {{ if .Status.MFA.IsActive}}border-left-success{{else}}border-left-info{{end}}">
             <div class="card-body">
-                <h6 class="card-title font-weight-bold">Multi-factor authentication</h6>
+                <h6 class="card-title font-weight-bold">多要素認証</h6>
                 <p class="card-text">
-                    Status: {{ if .Status.MFA.IsActive}}"Enabled"{{else}}"Disabled"{{end}}
+                    ステータス: {{ if .Status.MFA.IsActive}}"有効 "{{else}}"無効"{{end}}
                     {{ if .Status.MFA.IsActive}}
                     <br>
-                    Time-based one time passwords (RFC 6238) configurations:
+                    時間ベースのワンタイムパスワード(RFC 6238)の設定:
                     <br>
                     <ul>
                     {{range .Status.MFA.TOTPConfigs}}
-                    <li>Name: "{{.Name}}", issuer: "{{.Issuer}}", HMAC algorithm: "{{.Algo}}"</li>
+                    <li>名前: "{{.Name}}", 発行者: "{{.Issuer}}", HMACアルゴリズム: "{{.Algo}}"</li>
                     {{end}}
                     </ul>
                     {{end}}
@@ -115,11 +115,11 @@
 
         <div class="card mb-2 {{ if .Status.DataProvider.IsActive}}border-left-success{{else}}border-left-warning{{end}}">
             <div class="card-body">
-                <h6 class="card-title font-weight-bold">Data provider</h6>
+                <h6 class="card-title font-weight-bold">データプロバイダー</h6>
                 <p class="card-text">
-                    Status: {{ if .Status.DataProvider.IsActive}}"OK"{{else}}"{{.Status.DataProvider.Error}}"{{end}}
+                    ステータス: {{ if .Status.DataProvider.IsActive}}"OK"{{else}}"{{.Status.DataProvider.Error}}"{{end}}
                     <br>
-                    Driver: "{{.Status.DataProvider.Driver}}"
+                    ドライバー: "{{.Status.DataProvider.Driver}}"
                 </p>
             </div>
         </div>

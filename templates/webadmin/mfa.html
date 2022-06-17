@@ -10,7 +10,7 @@
 
 <div class="card shadow mb-4">
     <div class="card-header py-3">
-        <h6 class="m-0 font-weight-bold text-primary">TOTP (Authenticator app)</h6>
+        <h6 class="m-0 font-weight-bold text-primary">TOTP(オーセンティケーターアプリ)</h6>
     </div>
     <div class="card-body">
         <div id="successTOTPMsg" class="card mb-4 border-left-success" style="display: none;">
@@ -20,18 +20,18 @@
             <div id="errorTOTPTxt" class="card-body text-form-error"></div>
         </div>
         <div>
-            <p>Status: {{if .TOTPConfig.Enabled }}"Enabled". Current configuration: "{{.TOTPConfig.ConfigName}}"{{else}}"Disabled"{{end}}</p>
+            <p>ステータス: {{if .TOTPConfig.Enabled }}"有効". 現在の設定: "{{.TOTPConfig.ConfigName}}"{{else}}"無効"{{end}}</p>
         </div>
         <div class="form-group row totpDisable">
             <div class="col-sm-12">
-                <a id="idTOTPDisable" class="btn btn-warning" href="#" onclick="totpDisableAsk()" role="button">Disable</a>
+                <a id="idTOTPDisable" class="btn btn-warning" href="#" onclick="totpDisableAsk()" role="button">無効</a>
             </div>
         </div>
         <div class="form-group row">
-            <label for="idConfig" class="col-sm-2 col-form-label">Configuration</label>
+            <label for="idConfig" class="col-sm-2 col-form-label">設定</label>
             <div class="col-sm-10">
                 <select class="form-control selectpicker" id="idConfig" name="config_name">
-                    <option value="">None</option>
+                    <option value="">なし</option>
                     {{range .TOTPConfigs}}
                     <option value="{{.}}" {{if eq . $.TOTPConfig.ConfigName}}selected{{end}}>{{.}}</option>
                     {{end}}
@@ -41,25 +41,25 @@
 
         <div class="form-group row totpGenerate">
             <div class="col-sm-12">
-                <a id="idTOTPGenerate" class="btn btn-primary" href="#" onclick="totpGenerate()" role="button">Generate new secret</a>
+                <a id="idTOTPGenerate" class="btn btn-primary" href="#" onclick="totpGenerate()" role="button">新たなsecretを生成する</a>
             </div>
         </div>
 
         <div id="idTOTPDetails" class="totpDetails">
             <div>
-                <p>Your new TOTP secret is: <span id="idSecret"></span></p>
-                <p>For quick setup, scan this QR code with your TOTP app:</p>
+                <p>あなたの新しいTOTPシークレットは次のとおりです。 <span id="idSecret"></span></p>
+                <p>迅速なセットアップのために、TOTPアプリでこのQRコードをスキャンしてください。</p>
                 <img id="idQRCode" src="data:image/gif;base64, R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" alt="QR code" />
             </div>
             <br>
             <div>
-                <p>After you configured your app, enter a test code below to ensure everything works correctly. Recovery codes are automatically generated if missing or most of them have already been used</p>
+                <p>アプリを設定したら、以下にテストコードを入力して、すべてが正しく機能することを確認してください。リカバリーコードは、欠落している場合、またはそのほとんどがすでに使用されている場合に自動的に生成されます</p>
             </div>
 
             <div class="input-group">
                 <input type="text" class="form-control" id="idPasscode" name="passcode" value="" placeholder="Authentication code">
                 <span class="input-group-append">
-                    <a id="idTOTPSave" class="btn btn-primary" href="#" onclick="totpValidate()" role="button">Verify and save</a>
+                    <a id="idTOTPSave" class="btn btn-primary" href="#" onclick="totpValidate()" role="button">確認して保存する</a>
                 </span>
             </div>
         </div>
@@ -68,7 +68,7 @@
 
 <div class="card shadow mb-4">
     <div class="card-header py-3">
-        <h6 class="m-0 font-weight-bold text-primary">Recovery codes</h6>
+        <h6 class="m-0 font-weight-bold text-primary">リカバリーコード</h6>
     </div>
     <div id="idRecoveryCodesCard" class="card-body">
         <div id="successRecCodesMsg" class="card mb-4 border-left-success" style="display: none;">
@@ -78,12 +78,12 @@
             <div id="errorRecCodesTxt" class="card-body text-form-error"></div>
         </div>
         <div>
-            <p>Recovery codes are a set of one time use codes that can be used in place of the TOTP to login to the web UI. You can use them if you lose access to your phone to login to your account and disable or regenerate TOTP configuration.</p>
-            <p>To keep your account secure, don't share or distribute your recovery codes. We recommend saving them with a secure password manager.</p>
+            <p>リカバリコードは、WEB UIにログインするためにTOTPの代わりに使用できる1回限りのコードのセットです。携帯電話にアクセスできなくなり、アカウントにログインし、TOTP設定を無効化または再生成した場合に使用できます。</p>
+            <p>アカウントを安全に保つために、リカバリコードを共有したり配布したりしないでください。安全なパスワードマネージャーで保存することをお勧めします。</p>
         </div>
         <div class="form-group row viewRecoveryCodes">
             <div class="col-sm-12">
-                <a class="btn btn-primary" href="#" onclick="getRecoveryCodes()" role="button">View</a>
+                <a class="btn btn-primary" href="#" onclick="getRecoveryCodes()" role="button">ビュー</a>
             </div>
         </div>
         <div id="idRecoveryCodes" style="display: none;">
@@ -92,11 +92,11 @@
             <br>
         </div>
         <div>
-            <p>If you generate new recovery codes, you automatically invalidate old ones.</p>
+            <p>新しいリカバリコードを生成すると、古いリカバリコードは自動的に無効になります。</p>
         </div>
         <div class="form-group row">
             <div class="col-sm-12">
-                <a class="btn btn-primary" href="#" onclick="generateRecoveryCodes()" role="button">Generate</a>
+                <a class="btn btn-primary" href="#" onclick="generateRecoveryCodes()" role="button">生成</a>
             </div>
         </div>
     </div>
@@ -110,19 +110,19 @@
         <div class="modal-content">
             <div class="modal-header">
                 <h5 class="modal-title" id="disableTOTPModalLabel">
-                    Confirmation required
+                    確認が必要です
                 </h5>
                 <button class="close" type="button" data-dismiss="modal" aria-label="Close">
                     <span aria-hidden="true">&times;</span>
                 </button>
             </div>
-            <div class="modal-body">Do you want to disable the TOTP configuration?</div>
+            <div class="modal-body">TOTP設定を無効にしますか?</div>
             <div class="modal-footer">
                 <button class="btn btn-secondary" type="button" data-dismiss="modal">
-                    Cancel
+                    キャンセル
                 </button>
                 <a class="btn btn-warning" href="#" onclick="totpDisable()">
-                    Disable
+                    無効化
                 </a>
             </div>
         </div>

@@ -37,7 +37,7 @@
                             <div class="col-lg-12">
                                 <div class="p-5">
                                     <div class="text-center">
-                                        <h1 class="h5 text-gray-900 mb-4">To start using SFTPGo you need to create an admin user</h1>
+                                        <h1 class="h5 text-gray-900 mb-4">SFTPGoを使うためには、管理ユーザーを作る必要があります。</h1>
                                     </div>
                                     {{if .Error}}
                                     <div class="card mb-4 border-left-warning">
@@ -54,19 +54,19 @@
                                         {{end}}
                                         <div class="form-group">
                                             <input type="text" class="form-control form-control-user-custom" id="inputUsername"
-                                                name="username" placeholder="Username" value="{{.Username}}" required>
+                                                name="username" placeholder="ユーザ名" value="{{.Username}}" required>
                                         </div>
                                         <div class="form-group">
                                             <input type="password" class="form-control form-control-user-custom" id="inputPassword"
-                                                name="password" placeholder="Password" required>
+                                                name="password" placeholder="パスワード" required>
                                         </div>
                                         <div class="form-group">
                                             <input type="password" class="form-control form-control-user-custom" id="inputConfirmPassword"
-                                                name="confirm_password" placeholder="Repeat password" required>
+                                                name="confirm_password" placeholder="パスワードの確認" required>
                                         </div>
                                         <input type="hidden" name="_form_token" value="{{.CSRFToken}}">
                                         <button type="submit" class="btn btn-primary btn-user-custom btn-block">
-                                            Create admin
+                                            管理ユーザーを作成する
                                         </button>
                                     </form>
                                 </div>

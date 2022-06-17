@@ -20,14 +20,14 @@
         {{if eq .Mode 3}}
         <div class="card mb-4 border-left-info">
             <div class="card-body">
-                Create and save one or more new folders or generate a data provider independent JSON file to import.
+                1つ以上の新しいフォルダを作成して保存するか、インポートするデータプロバイダーに依存しないJSONファイルを生成します。
                 <br>
-                The following placeholder is supported:
+                以下のプレースホルダがサポートされています：
                 <br><br>
                 <ul>
-                    <li><span class="text-success">%name%</span> will be replaced with the specified folder name</li>
+                    <li><span class="text-success">%name%</span> 指定されたフォルダ名に置き換えられます</li>
                 </ul>
-                The generated folders can be saved or exported. Exported folders can be imported from the "Maintenance" section of this SFTPGo instance or another.
+                生成されたフォルダは保存またはエクスポートできます。エクスポートされたフォルダは、このSFTPGoインスタンスの「メンテナンス」セクションからインポートできます。
             </div>
         </div>
         {{end}}
@@ -35,14 +35,14 @@
             {{if eq .Mode 3}}
             <div class="card bg-light mb-3">
                 <div class="card-header">
-                   <b>Folders</b>
+                   <b>フォルダー</b>
                 </div>
                 <div class="card-body">
                     <div class="form-group row">
                         <div class="col-md-12 form_field_tpl_folders_outer">
                             <div class="row form_field_tpl_folder_outer_row">
                                 <div class="form-group col-md-10">
-                                    <input type="text" class="form-control" id="idTplFolder0" name="tpl_foldername" placeholder="Folder name" maxlength="255">
+                                    <input type="text" class="form-control" id="idTplFolder0" name="tpl_foldername" placeholder="フォルダ名" maxlength="255">
                                 </div>
                                 <div class="form-group col-md-2">
                                     <button class="btn btn-circle btn-danger remove_tpl_folder_btn_frm_field">
@@ -55,7 +55,7 @@
 
                     <div class="row mx-1">
                         <button type="button" class="btn btn-secondary add_new_tpl_folder_field_btn">
-                            <i class="fas fa-plus"></i> Add new folder name
+                            <i class="fas fa-plus"></i> 新しいフォルダ名を追加する
                         </button>
                     </div>
                 </div>
@@ -63,7 +63,7 @@
             <input type="hidden" name="name" id="idFolderName" value="{{.Folder.Name}}">
             {{else}}
             <div class="form-group row">
-                <label for="idFolderName" class="col-sm-2 col-form-label">Name</label>
+                <label for="idFolderName" class="col-sm-2 col-form-label">名前</label>
                 <div class="col-sm-10">
                     <input type="text" class="form-control" id="idFolderName" name="name" placeholder=""
                         value="{{.Folder.Name}}" maxlength="255" autocomplete="nope" required {{if ge .Mode 2}}readonly{{end}}>
@@ -71,12 +71,12 @@
             </div>
             {{end}}
             <div class="form-group row">
-                <label for="idDescription" class="col-sm-2 col-form-label">Description</label>
+                <label for="idDescription" class="col-sm-2 col-form-label">説明</label>
                 <div class="col-sm-10">
                     <input type="text" class="form-control" id="idDescription" name="description" placeholder=""
                         value="{{.Folder.Description}}" maxlength="255" aria-describedby="descriptionHelpBlock">
                     <small id="descriptionHelpBlock" class="form-text text-muted">
-                        Optional description
+                        オプションの説明
                     </small>
                 </div>
             </div>

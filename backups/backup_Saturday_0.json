@@ -1,0 +1,1 @@
+{"users":[],"groups":[],"folders":[],"admins":[{"id":1,"status":1,"username":"admin","password":"$2a$10$Df1E4EXMUDN8onL19yhuCegFfxtu931goa56rfre5Rbc0X2X4.1b.","permissions":["*"],"filters":{"totp_config":{"secret":{}}},"created_at":1655464816729,"updated_at":1655464816729,"last_login":1655475084768}],"api_keys":[],"shares":[],"version":12}

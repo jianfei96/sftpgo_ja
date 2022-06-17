@@ -20,24 +20,24 @@
         {{end}}
         <div class="card mb-4 border-left-info">
             <div class="card-body">
-                The <span class="text-success">%username%</span> placeholder will be replaced with the username of the associated users.
+                この <span class="text-success">%username%</span> プレースホルダは、関連するユーザーのユーザー名に置き換えられます。
             </div>
         </div>
         <form id="group_form" enctype="multipart/form-data" action="{{.CurrentURL}}" method="POST" autocomplete="off">
             <div class="form-group row">
-                <label for="idGroupName" class="col-sm-2 col-form-label">Name</label>
+                <label for="idGroupName" class="col-sm-2 col-form-label">名前</label>
                 <div class="col-sm-10">
                     <input type="text" class="form-control" id="idGroupName" name="name" placeholder=""
                         value="{{.Group.Name}}" maxlength="255" autocomplete="nope" required {{if eq .Mode 2}}readonly{{end}}>
                 </div>
             </div>
             <div class="form-group row">
-                <label for="idDescription" class="col-sm-2 col-form-label">Description</label>
+                <label for="idDescription" class="col-sm-2 col-form-label">説明</label>
                 <div class="col-sm-10">
                     <input type="text" class="form-control" id="idDescription" name="description" placeholder=""
                         value="{{.Group.Description}}" maxlength="255" aria-describedby="descriptionHelpBlock">
                     <small id="descriptionHelpBlock" class="form-text text-muted">
-                        Optional description
+                        オプションの説明
                     </small>
                 </div>
             </div>
@@ -46,10 +46,10 @@
             {{if .VirtualFolders}}
             <div class="card bg-light mb-3">
                 <div class="card-header">
-                    <b>Virtual folders</b>
+                    <b>仮想フォルダ</b>
                 </div>
                 <div class="card-body">
-                    <h6 class="card-title mb-4">Quota -1 means included within user quota, 0 unlimited. Don't set -1 for shared folders</h6>
+                    <h6 class="card-title mb-4">クォータ-1は、ユーザークォータに含まれることを意味し、0は無制限です。共有フォルダに-1を設定しないでください</h6>
                     <div class="form-group row">
                         <div class="col-md-12 form_field_vfolders_outer">
                             {{range $idx, $val := .Group.VirtualFolders}}
@@ -69,14 +69,14 @@
                                     <input type="number" class="form-control" id="idVfolderQuotaSize{{$idx}}" name="vfolder_quota_size"
                                         value="{{$val.QuotaSize}}" min="-1" aria-describedby="vqsHelpBlock{{$idx}}">
                                     <small id="vqsHelpBlock{{$idx}}" class="form-text text-muted">
-                                        Quota size (bytes)
+                                        クォータサイズ(バイト)
                                     </small>
                                 </div>
                                 <div class="form-group col-md-2">
                                     <input type="number" class="form-control" id="idVfolderQuotaFiles{{$idx}}" name="vfolder_quota_files"
                                         value="{{$val.QuotaFiles}}" min="-1" aria-describedby="vqfHelpBlock{{$idx}}">
                                         <small id="vqfHelpBlock{{$idx}}" class="form-text text-muted">
-                                            Quota files
+                                            クォータファイル
                                         </small>
                                 </div>
                                 <div class="form-group col-md-1">
@@ -88,7 +88,7 @@
                             {{else}}
                             <div class="row form_field_vfolder_outer_row">
                                 <div class="form-group col-md-3">
-                                    <input type="text" class="form-control" id="idVolderPath0" name="vfolder_path" placeholder="mount path, i.e. /vfolder" value="" maxlength="255">
+                                    <input type="text" class="form-control" id="idVolderPath0" name="vfolder_path" placeholder="マウントパス、すなわち/vfolder" value="" maxlength="255">
                                 </div>
                                 <div class="form-group col-md-3">
                                     <select class="form-control selectpicker" data-live-search="true" id="idVfolderName0" name="vfolder_name">
@@ -102,14 +102,14 @@
                                     <input type="number" class="form-control" id="idVfolderQuotaSize0" name="vfolder_quota_size"
                                         value="" min="-1" aria-describedby="vqsHelpBlock0">
                                     <small id="vqsHelpBlock0" class="form-text text-muted">
-                                        Quota size (bytes)
+                                        クォータサイズ(バイト)
                                     </small>
                                 </div>
                                 <div class="form-group col-md-2">
                                     <input type="number" class="form-control" id="idVfolderQuotaFiles0" name="vfolder_quota_files"
                                         value="" min="-1" aria-describedby="vqfHelpBlock0">
                                         <small id="vqfHelpBlock0" class="form-text text-muted">
-                                            Quota files
+                                            クォータファイル
                                         </small>
                                 </div>
                                 <div class="form-group col-md-1">
@@ -124,7 +124,7 @@
 
                     <div class="row mx-1">
                         <button type="button" class="btn btn-secondary add_new_vfolder_field_btn">
-                            <i class="fas fa-plus"></i> Add new virtual folder
+                            <i class="fas fa-plus"></i> 新しい仮想フォルダを追加する
                         </button>
                     </div>
                 </div>
@@ -145,7 +145,7 @@
                         <div class="card-body">
                             <div class="card bg-light mb-3">
                                 <div class="card-header">
-                                    <b>Per-directory permissions</b>
+                                    <b>ディレクトリごとの権限</b>
                                 </div>
                                 <div class="card-body">
                                     <div class="form-group row">
@@ -171,7 +171,7 @@
                                             {{else}}
                                             <div class="row form_field_dirperms_outer_row">
                                                 <div class="form-group col-md-8">
-                                                    <input type="text" class="form-control" id="idSubDirPermsPath0" name="sub_perm_path0" placeholder="directory path, i.e. /dir" value="" maxlength="255">
+                                                    <input type="text" class="form-control" id="idSubDirPermsPath0" name="sub_perm_path0" placeholder="ディレクトリパス、つまり/dir" value="" maxlength="255">
                                                 </div>
                                                 <div class="form-group col-md-3">
                                                     <select class="form-control selectpicker" id="idSubDirPermissions0" name="sub_perm_permissions0" multiple>
@@ -192,7 +192,7 @@
 
                                     <div class="row mx-1">
                                         <button type="button" class="btn btn-secondary add_new_dirperms_field_btn">
-                                            <i class="fas fa-plus"></i> Add new directory permissions
+                                            <i class="fas fa-plus"></i> 新しいディレクトリ権限を追加する
                                         </button>
                                     </div>
                                 </div>
@@ -200,31 +200,31 @@
 
                             <div class="card bg-light mb-3">
                                 <div class="card-header">
-                                    <b>Per-directory pattern restrictions</b>
+                                    <b>ディレクトリごとのパターン制限</b>
                                 </div>
                                 <div class="card-body">
-                                    <h6 class="card-title mb-4">Comma separated denied or allowed files/directories, based on shell patterns.</h6>
-                                    <p class="card-text">Denied entries are visible in directory listing by default, you can hide them by setting the "Hidden" policy, but please be aware that this may cause performance issues for large directories</p>
+                                    <h6 class="card-title mb-4">シェルパターンに基づいて、カンマ区切りの拒否または許可されたファイル/ディレクトリ。</h6>
+                                    <p class="card-text">拒否されたエントリはデフォルトでディレクトリリストに表示されます。「非表示」ポリシーを設定することで非表示にすることができますが、これにより大規模なディレクトリのパフォーマンスの問題が発生する可能性があることに注意してください。</p>
                                     <div class="form-group row">
                                         <div class="col-md-12 form_field_patterns_outer">
                                             {{range $idx, $pattern := .Group.UserSettings.Filters.GetFlatFilePatterns -}}
                                             <div class="row form_field_patterns_outer_row">
                                                 <div class="form-group col-md-3">
-                                                    <input type="text" class="form-control" id="idPatternPath{{$idx}}" name="pattern_path{{$idx}}" placeholder="directory path, i.e. /dir" value="{{$pattern.Path}}" maxlength="255">
+                                                    <input type="text" class="form-control" id="idPatternPath{{$idx}}" name="pattern_path{{$idx}}" placeholder="ディレクトリパス、つまり/dir" value="{{$pattern.Path}}" maxlength="255">
                                                 </div>
                                                 <div class="form-group col-md-4">
                                                     <input type="text" class="form-control" id="idPatterns{{$idx}}" name="patterns{{$idx}}" placeholder="*.zip,?.txt" value="{{$pattern.GetCommaSeparatedPatterns}}" maxlength="255">
                                                 </div>
                                                 <div class="form-group col-md-2">
                                                     <select class="form-control selectpicker" id="idPatternType{{$idx}}" name="pattern_type{{$idx}}">
-                                                        <option value="denied" {{if $pattern.IsDenied}}selected{{end}}>Denied</option>
-                                                        <option value="allowed" {{if $pattern.IsAllowed}}selected{{end}}>Allowed</option>
+                                                        <option value="denied" {{if $pattern.IsDenied}}selected{{end}}>拒否された</option>
+                                                        <option value="allowed" {{if $pattern.IsAllowed}}selected{{end}}>許可された</option>
                                                     </select>
                                                 </div>
                                                 <div class="form-group col-md-2">
                                                     <select class="form-control selectpicker" id="idPatternPolicy{{$idx}}" name="pattern_policy{{$idx}}">
-                                                        <option value="0" {{if eq $pattern.DenyPolicy 0}}selected{{end}}>Visible</option>
-                                                        <option value="1" {{if eq $pattern.DenyPolicy 1}}selected{{end}}>Hidden</option>
+                                                        <option value="0" {{if eq $pattern.DenyPolicy 0}}selected{{end}}>目に見える</option>
+                                                        <option value="1" {{if eq $pattern.DenyPolicy 1}}selected{{end}}>隠される</option>
                                                     </select>
                                                 </div>
                                                 <div class="form-group col-md-1">
@@ -236,21 +236,21 @@
                                             {{else}}
                                             <div class="row form_field_patterns_outer_row">
                                                 <div class="form-group col-md-3">
-                                                    <input type="text" class="form-control" id="idPatternPath0" name="pattern_path0" placeholder="directory path, i.e. /dir" value="" maxlength="255">
+                                                    <input type="text" class="form-control" id="idPatternPath0" name="pattern_path0" placeholder="ディレクトリパス、つまり/dir" value="" maxlength="255">
                                                 </div>
                                                 <div class="form-group col-md-4">
                                                     <input type="text" class="form-control" id="idPatterns0" name="patterns0" placeholder="*.zip,?.txt" value="" maxlength="255">
                                                 </div>
                                                 <div class="form-group col-md-2">
                                                     <select class="form-control selectpicker" id="idPatternType0" name="pattern_type0">
-                                                        <option value="denied">Denied</option>
-                                                        <option value="allowed">Allowed</option>
+                                                        <option value="denied">拒否された</option>
+                                                        <option value="allowed">許可された</option>
                                                     </select>
                                                 </div>
                                                 <div class="form-group col-md-2">
                                                     <select class="form-control selectpicker" id="idPatternPolicy0" name="pattern_policy0">
-                                                        <option value="0">Visible</option>
-                                                        <option value="1">Hidden</option>
+                                                        <option value="0">目に見える</option>
+                                                        <option value="1">隠された</option>
                                                     </select>
                                                 </div>
                                                 <div class="form-group col-md-1">
@@ -265,25 +265,25 @@
 
                                     <div class="row mx-1">
                                         <button type="button" class="btn btn-secondary add_new_pattern_field_btn">
-                                            <i class="fas fa-plus"></i> Add new file pattern
+                                            <i class="fas fa-plus"></i> 新しいファイルパターンを追加する
                                         </button>
                                     </div>
                                 </div>
                             </div>
 
                             <div class="form-group row">
-                                <label for="idMaxSessions" class="col-sm-2 col-form-label">Max sessions</label>
+                                <label for="idMaxSessions" class="col-sm-2 col-form-label">最大セッション数</label>
                                 <div class="col-sm-10">
                                     <input type="number" class="form-control" id="idMaxSessions" name="max_sessions" placeholder=""
                                         value="{{.Group.UserSettings.MaxSessions}}" min="0" aria-describedby="sessionsHelpBlock">
                                     <small id="sessionsHelpBlock" class="form-text text-muted">
-                                        Maximun number of concurrent sessions. 0 means no limit
+                                        同時セッションの最大数。0は制限がないことを意味します
                                     </small>
                                 </div>
                             </div>
 
                             <div class="form-group row">
-                                <label for="idProtocols" class="col-sm-2 col-form-label">Denied protocols</label>
+                                <label for="idProtocols" class="col-sm-2 col-form-label">拒否されたプロトコル</label>
                                 <div class="col-sm-10">
                                     <select class="form-control selectpicker" id="idProtocols" name="denied_protocols" multiple>
                                         {{range $protocol := .ValidProtocols}}
@@ -295,7 +295,7 @@
                             </div>
 
                             <div class="form-group row">
-                                <label for="idLoginMethods" class="col-sm-2 col-form-label">Denied login methods</label>
+                                <label for="idLoginMethods" class="col-sm-2 col-form-label">拒否されたログイン方法</label>
                                 <div class="col-sm-10">
                                     <select class="form-control selectpicker" id="idLoginMethods" name="denied_login_methods" multiple aria-describedby="deniedLoginMethodsHelpBlock">
                                         {{range $method := .ValidLoginMethods}}
@@ -304,13 +304,13 @@
                                         {{end}}
                                     </select>
                                     <small id="deniedLoginMethodsHelpBlock" class="form-text text-muted">
-                                        "password" is valid for all supported protocols, "password-over-SSH" only for SSH/SFTP/SCP
+                                        「password」はサポートされているすべてのプロトコルで有効で、「password-over-SSH」はSSH/SFTP/SCPにのみ有効です。
                                     </small>
                                 </div>
                             </div>
 
                             <div class="form-group row">
-                                <label for="idTwoFactorProtocols" class="col-sm-2 col-form-label">Require two-factor auth for</label>
+                                <label for="idTwoFactorProtocols" class="col-sm-2 col-form-label">2要素認証を要求する</label>
                                 <div class="col-sm-10">
                                     <select class="form-control selectpicker" id="idTwoFactorProtocols" name="required_two_factor_protocols" multiple>
                                         {{range $protocol := .TwoFactorProtocols}}
@@ -322,7 +322,7 @@
                             </div>
 
                             <div class="form-group row">
-                                <label for="idWebClient" class="col-sm-2 col-form-label">Web client/REST API</label>
+                                <label for="idWebClient" class="col-sm-2 col-form-label">Webクライアント/REST API</label>
                                 <div class="col-sm-10">
                                     <select class="form-control selectpicker" id="idWebClient" name="web_client_options" multiple>
                                         {{range $option := .WebClientOptions}}
@@ -334,23 +334,23 @@
                             </div>
 
                             <div class="form-group row">
-                                <label for="idDeniedIP" class="col-sm-2 col-form-label">Denied IP/Mask</label>
+                                <label for="idDeniedIP" class="col-sm-2 col-form-label">拒否されたIP/マスク</label>
                                 <div class="col-sm-10">
                                     <textarea class="form-control" id="idDeniedIP" name="denied_ip" rows="3" placeholder=""
                                         aria-describedby="deniedIPHelpBlock">{{.Group.GetDeniedIPAsString}}</textarea>
                                     <small id="deniedIPHelpBlock" class="form-text text-muted">
-                                        Comma separated IP/Mask in CIDR format, example: "192.168.1.0/24,10.8.0.100/32"
+                                        CIDR形式のカンマ区切りIP/マスク、例:「192.168.1.0/24,10.8.0.100/32」
                                     </small>
                                 </div>
                             </div>
 
                             <div class="form-group row">
-                                <label for="idAllowedIP" class="col-sm-2 col-form-label">Allowed IP/Mask</label>
+                                <label for="idAllowedIP" class="col-sm-2 col-form-label">許可されたIP/マスク</label>
                                 <div class="col-sm-10">
                                     <textarea class="form-control" id="idAllowedIP" name="allowed_ip" rows="3" placeholder=""
                                         aria-describedby="allowedIPHelpBlock">{{.Group.GetAllowedIPAsString}}</textarea>
                                     <small id="allowedIPHelpBlock" class="form-text text-muted">
-                                        Comma separated IP/Mask in CIDR format, example: "192.168.1.0/24,10.8.0.100/32"
+                                        CIDR形式のカンマ区切りIP/マスク、例:「192.168.1.0/24,10.8.0.100/32」
                                     </small>
                                 </div>
                             </div>
@@ -363,7 +363,7 @@
                         <h2 class="mb-0">
                             <button class="btn btn-link btn-block text-left collapsed" type="button" data-toggle="collapse"
                                 data-target="#collapseQuota" aria-expanded="false" aria-controls="collapseQuota">
-                                <h6 class="m-0 font-weight-bold text-primary">Disk quota and bandwidth limits</h6>
+                                <h6 class="m-0 font-weight-bold text-primary">ディスククォータと帯域幅の制限</h6>
                             </button>
                         </h2>
                     </div>
@@ -371,60 +371,60 @@
                         <div class="card-body">
 
                             <div class="form-group row">
-                                <label for="idQuotaSize" class="col-sm-2 col-form-label">Quota size (bytes)</label>
+                                <label for="idQuotaSize" class="col-sm-2 col-form-label">クォータサイズ(バイト)</label>
                                 <div class="col-sm-3">
                                     <input type="number" class="form-control" id="idQuotaSize" name="quota_size" placeholder=""
                                         value="{{.Group.UserSettings.QuotaSize}}" min="0" aria-describedby="qsHelpBlock">
                                     <small id="qsHelpBlock" class="form-text text-muted">
-                                        0 means no limit
+                                        0は制限がないことを意味します
                                     </small>
                                 </div>
                                 <div class="col-sm-2"></div>
-                                <label for="idQuotaFiles" class="col-sm-2 col-form-label">Quota files</label>
+                                <label for="idQuotaFiles" class="col-sm-2 col-form-label">クォータファイル</label>
                                 <div class="col-sm-3">
                                     <input type="number" class="form-control" id="idQuotaFiles" name="quota_files" placeholder=""
                                         value="{{.Group.UserSettings.QuotaFiles}}" min="0" aria-describedby="qfHelpBlock">
                                     <small id="qfHelpBlock" class="form-text text-muted">
-                                        0 means no limit
+                                        0は制限がないことを意味します
                                     </small>
                                 </div>
                             </div>
 
                             <div class="form-group row">
-                                <label for="idMaxUploadSize" class="col-sm-2 col-form-label">Max file upload size (bytes)</label>
+                                <label for="idMaxUploadSize" class="col-sm-2 col-form-label">最大ファイルアップロードサイズ(バイト)</label>
                                 <div class="col-sm-10">
                                     <input type="number" class="form-control" id="idMaxUploadSize" name="max_upload_file_size"
                                         placeholder="" value="{{.Group.UserSettings.Filters.MaxUploadFileSize}}" min="0"
                                         aria-describedby="fqsHelpBlock">
                                     <small id="fqsHelpBlock" class="form-text text-muted">
-                                        Maximum upload size for a single file. 0 means no limit
+                                        1つのファイルの最大アップロードサイズ。0は制限がないことを意味します
                                     </small>
                                 </div>
                             </div>
 
                             <div class="form-group row">
-                                <label for="idUploadBandwidth" class="col-sm-2 col-form-label">Bandwidth UL (KB/s)</label>
+                                <label for="idUploadBandwidth" class="col-sm-2 col-form-label">帯域幅 UL (KB/s)</label>
                                 <div class="col-sm-3">
                                     <input type="number" class="form-control" id="idUploadBandwidth" name="upload_bandwidth"
                                         placeholder="" value="{{.Group.UserSettings.UploadBandwidth}}" min="0" aria-describedby="ulHelpBlock">
                                     <small id="ulHelpBlock" class="form-text text-muted">
-                                        0 means no limit
+                                        0は制限がないことを意味します
                                     </small>
                                 </div>
                                 <div class="col-sm-2"></div>
-                                <label for="idDownloadBandwidth" class="col-sm-2 col-form-label">Bandwidth DL (KB/s)</label>
+                                <label for="idDownloadBandwidth" class="col-sm-2 col-form-label">帯域幅 DL (KB/s)</label>
                                 <div class="col-sm-3">
                                     <input type="number" class="form-control" id="idDownloadBandwidth" name="download_bandwidth"
                                         placeholder="" value="{{.Group.UserSettings.DownloadBandwidth}}" min="0" aria-describedby="dlHelpBlock">
                                     <small id="dlHelpBlock" class="form-text text-muted">
-                                        0 means no limit
+                                        0は制限がないことを意味します
                                     </small>
                                 </div>
                             </div>
 
                             <div class="card bg-light mb-3">
                                 <div class="card-header">
-                                    <b>Per-source bandwidth speed limits</b>
+                                    <b>ソースごとの帯域幅の制限速度</b>
                                 </div>
                                 <div class="card-body">
                                     <div class="form-group row">
@@ -435,7 +435,7 @@
                                                     <textarea class="form-control" id="idBandwidthLimitSources{{$idx}}" name="bandwidth_limit_sources{{$idx}}" rows="4" placeholder=""
                                                             aria-describedby="bwLimitSourcesHelpBlock{{$idx}}">{{$bwLimit.GetSourcesAsString}}</textarea>
                                                     <small id="bwLimitSourcesHelpBlock{{$idx}}" class="form-text text-muted">
-                                                        Comma separated IP/Mask in CIDR format, example: "192.168.1.0/24,10.8.0.100/32"
+                                                        CIDR形式のカンマ区切りIP/マスク、例:「192.168.1.0/24,10.8.0.100/32」
                                                     </small>
                                                 </div>
                                                 <div class="col-md-3">
@@ -443,14 +443,14 @@
                                                         <input type="number" class="form-control" id="idUploadBandwidthSource{{$idx}}" name="upload_bandwidth_source{{$idx}}"
                                                             placeholder="" value="{{$bwLimit.UploadBandwidth}}" min="0" aria-describedby="ulHelpBlock{{$idx}}">
                                                         <small id="ulHelpBlock{{$idx}}" class="form-text text-muted">
-                                                            UL (KB/s). 0 means no limit
+                                                            UL (KB/s)。0は制限なしを意味します
                                                         </small>
                                                     </div>
                                                     <div class="form-group">
                                                         <input type="number" class="form-control" id="idDownloadBandwidthSource{{$idx}}" name="download_bandwidth_source{{$idx}}"
                                                             placeholder="" value="{{$bwLimit.DownloadBandwidth}}" min="0" aria-describedby="dlHelpBlock{{$idx}}">
                                                         <small id="dlHelpBlock{{$idx}}" class="form-text text-muted">
-                                                            DL (KB/s). 0 means no limit
+                                                            DL (KB/s)。0は制限がないことを意味します
                                                         </small>
                                                     </div>
                                                 </div>
@@ -467,7 +467,7 @@
                                                     <textarea class="form-control" id="idBandwidthLimitSources0" name="bandwidth_limit_sources0" rows="4" placeholder=""
                                                             aria-describedby="bwLimitSourcesHelpBlock0"></textarea>
                                                     <small id="bwLimitSourcesHelpBlock0" class="form-text text-muted">
-                                                        Comma separated IP/Mask in CIDR format, example: "192.168.1.0/24,10.8.0.100/32"
+                                                        CIDR形式のカンマ区切りIP/マスク、例:「192.168.1.0/24,10.8.0.100/32」
                                                     </small>
                                                 </div>
                                                 <div class="col-md-3">
@@ -475,14 +475,14 @@
                                                         <input type="number" class="form-control" id="idUploadBandwidthSource0" name="upload_bandwidth_source0"
                                                             placeholder="" value="" min="0" aria-describedby="ulHelpBlock0">
                                                         <small id="ulHelpBlock0" class="form-text text-muted">
-                                                            UL (KB/s). 0 means no limit
+                                                            UL (KB/s)。0は制限なしを意味します
                                                         </small>
                                                     </div>
                                                     <div class="form-group">
                                                         <input type="number" class="form-control" id="idDownloadBandwidthSource0" name="download_bandwidth_source0"
                                                             placeholder="" value="" min="0" aria-describedby="dlHelpBlock0">
                                                         <small id="dlHelpBlock0" class="form-text text-muted">
-                                                            DL (KB/s). 0 means no limit
+                                                            DL (KB/s)。0は制限がないことを意味します
                                                         </small>
                                                     </div>
                                                 </div>
@@ -498,47 +498,47 @@
 
                                     <div class="row mx-1">
                                         <button type="button" class="btn btn-secondary add_new_bwlimit_field_btn">
-                                            <i class="fas fa-plus"></i> Add new speed limit
+                                            <i class="fas fa-plus"></i> 新しい速度制限を追加する
                                         </button>
                                     </div>
                                 </div>
                             </div>
 
                             <div class="form-group row">
-                                <label for="idTransferUL" class="col-sm-2 col-form-label">Upload data transfer (MB)</label>
+                                <label for="idTransferUL" class="col-sm-2 col-form-label">アップロードデータ転送(MB)</label>
                                 <div class="col-sm-3">
                                     <input type="number" class="form-control" id="idTransferUL" name="upload_data_transfer" placeholder=""
                                         value="{{.Group.UserSettings.UploadDataTransfer}}" min="0" aria-describedby="ulTransferHelpBlock">
                                     <small id="ulTransferHelpBlock" class="form-text text-muted">
-                                        Maximum data transfer allowed for uploads. 0 means no limit
+                                        アップロードに許可される最大データ転送。0は制限がないことを意味します
                                     </small>
                                 </div>
                                 <div class="col-sm-2"></div>
-                                <label for="idTransferDL" class="col-sm-2 col-form-label">Download data transfer (MB)</label>
+                                <label for="idTransferDL" class="col-sm-2 col-form-label">ダウンロードデータ転送(MB)</label>
                                 <div class="col-sm-3">
                                     <input type="number" class="form-control" id="idTransferDL" name="download_data_transfer" placeholder=""
                                         value="{{.Group.UserSettings.DownloadDataTransfer}}" min="0" aria-describedby="dlTransferHelpBlock">
                                     <small id="dlTransferHelpBlock" class="form-text text-muted">
-                                        Maximum data transfer allowed for downloads. 0 means no limit
+                                        ダウンロード可能な最大データ転送。0は制限がないことを意味します
                                     </small>
                                 </div>
                             </div>
 
                             <div class="form-group row">
-                                <label for="idTransferTotal" class="col-sm-2 col-form-label">Total data transfer (MB)</label>
+                                <label for="idTransferTotal" class="col-sm-2 col-form-label">総データ転送量(MB)</label>
                                 <div class="col-sm-10">
                                     <input type="number" class="form-control" id="idTransferTotal" name="total_data_transfer"
                                         placeholder="" value="{{.Group.UserSettings.TotalDataTransfer}}" min="0"
                                         aria-describedby="totalTransferHelpBlock">
                                     <small id="totalTransferHelpBlock" class="form-text text-muted">
-                                        Maximum data transfer allowed for uploads + downloads. Replace the individual limits. 0 means no limit
+                                        アップロード+ダウンロードに許可される最大データ転送。個々の制限を置き換えます。0は制限がないことを意味します
                                     </small>
                                 </div>
                             </div>
 
                             <div class="card bg-light mb-3">
                                 <div class="card-header">
-                                    <b>Per-source data transfer limits</b>
+                                    <b>ソースごとのデータ転送制限</b>
                                 </div>
                                 <div class="card-body">
                                     <div class="form-group row">
@@ -549,7 +549,7 @@
                                                     <textarea class="form-control" id="idDataTransferLimitSources{{$idx}}" name="data_transfer_limit_sources{{$idx}}" rows="4" placeholder=""
                                                             aria-describedby="dtLimitSourcesHelpBlock{{$idx}}">{{$dtLimit.GetSourcesAsString}}</textarea>
                                                     <small id="dtLimitSourcesHelpBlock{{$idx}}" class="form-text text-muted">
-                                                        Comma separated IP/Mask in CIDR format, example: "192.168.1.0/24,10.8.0.100/32"
+                                                        CIDR形式のカンマ区切りIP/マスク、例:「192.168.1.0/24,10.8.0.100/32」
                                                     </small>
                                                 </div>
                                                 <div class="col-md-3">
@@ -557,14 +557,14 @@
                                                         <input type="number" class="form-control" id="idUploadTransferSource{{$idx}}" name="upload_data_transfer_source{{$idx}}"
                                                             placeholder="" value="{{$dtLimit.UploadDataTransfer}}" min="0" aria-describedby="ulDtHelpBlock{{$idx}}">
                                                         <small id="ulDtHelpBlock{{$idx}}" class="form-text text-muted">
-                                                            UL (MB). 0 means no limit
+                                                            UL(MB)。0は制限がないことを意味します
                                                         </small>
                                                     </div>
                                                     <div class="form-group">
                                                         <input type="number" class="form-control" id="idDownloadTransferSource{{$idx}}" name="download_data_transfer_source{{$idx}}"
                                                             placeholder="" value="{{$dtLimit.DownloadDataTransfer}}" min="0" aria-describedby="dlDtHelpBlock{{$idx}}">
                                                         <small id="dlDtHelpBlock{{$idx}}" class="form-text text-muted">
-                                                            DL (MB). 0 means no limit
+                                                            DL(MB)。0は制限がないことを意味します
                                                         </small>
                                                     </div>
                                                 </div>
@@ -573,7 +573,7 @@
                                                         <input type="number" class="form-control" id="idTotalTransferSource{{$idx}}" name="total_data_transfer_source{{$idx}}"
                                                             placeholder="" value="{{$dtLimit.TotalDataTransfer}}" min="0" aria-describedby="totalDtHelpBlock{{$idx}}">
                                                         <small id="totalDtHelpBlock{{$idx}}" class="form-text text-muted">
-                                                            Total (MB). 0 means no limit
+                                                            合計(MB)。0は制限がないことを意味します
                                                         </small>
                                                     </div>
                                                 </div>
@@ -589,7 +589,7 @@
                                                     <textarea class="form-control" id="idDataTransferLimitSources0" name="data_transfer_limit_sources0" rows="4" placeholder=""
                                                             aria-describedby="dtLimitSourcesHelpBlock0"></textarea>
                                                     <small id="dtLimitSourcesHelpBlock0" class="form-text text-muted">
-                                                        Comma separated IP/Mask in CIDR format, example: "192.168.1.0/24,10.8.0.100/32"
+                                                        CIDR形式のカンマ区切りIP/マスク、例:「192.168.1.0/24,10.8.0.100/32」
                                                     </small>
                                                 </div>
                                                 <div class="col-md-3">
@@ -597,14 +597,14 @@
                                                         <input type="number" class="form-control" id="idUploadTransferSource0" name="upload_data_transfer_source0"
                                                             placeholder="" value="" min="0" aria-describedby="ulDtHelpBlock0">
                                                         <small id="ulDtHelpBlock0" class="form-text text-muted">
-                                                            UL (MB). 0 means no limit
+                                                            UL(MB)。0は制限がないことを意味します
                                                         </small>
                                                     </div>
                                                     <div class="form-group">
                                                         <input type="number" class="form-control" id="idDownloadTransferSource0" name="download_data_transfer_source0"
                                                             placeholder="" value="" min="0" aria-describedby="dlDtHelpBlock0">
                                                         <small id="dlDtHelpBlock0" class="form-text text-muted">
-                                                            DL (MB). 0 means no limit
+                                                            DL(MB)。0は制限がないことを意味します
                                                         </small>
                                                     </div>
                                                 </div>
@@ -613,7 +613,7 @@
                                                         <input type="number" class="form-control" id="idTotalTransferSource0" name="total_data_transfer_source0"
                                                             placeholder="" value="" min="0" aria-describedby="totalDtHelpBlock0">
                                                         <small id="totalDtHelpBlock0" class="form-text text-muted">
-                                                            Total (MB). 0 means no limit
+                                                            合計(MB)。0は制限がないことを意味します
                                                         </small>
                                                     </div>
                                                 </div>
@@ -629,7 +629,7 @@
 
                                     <div class="row mx-1">
                                         <button type="button" class="btn btn-secondary add_new_dtlimit_field_btn">
-                                            <i class="fas fa-plus"></i> Add new data transfer limit
+                                            <i class="fas fa-plus"></i> 新しいデータ転送制限を追加する
                                         </button>
                                     </div>
                                 </div>
@@ -644,7 +644,7 @@
                         <h2 class="mb-0">
                             <button class="btn btn-link btn-block text-left collapsed" type="button" data-toggle="collapse"
                                 data-target="#collapseAdvanced" aria-expanded="false" aria-controls="collapseAdvanced">
-                                <h6 class="m-0 font-weight-bold text-primary">More</h6>
+                                <h6 class="m-0 font-weight-bold text-primary">更に</h6>
                             </button>
                         </h2>
                     </div>
@@ -652,41 +652,41 @@
                         <div class="card-body">
 
                             <div class="form-group row">
-                                <label for="idStartDirectory" class="col-sm-2 col-form-label">Start directory</label>
+                                <label for="idStartDirectory" class="col-sm-2 col-form-label">スタートディレクトリ</label>
                                 <div class="col-sm-10">
                                     <input type="text" class="form-control" id="idStartDirectory" name="start_directory" placeholder=""
                                         value="{{.Group.UserSettings.Filters.StartDirectory}}" aria-describedby="startDirHelpBlock">
                                     <small id="startDirHelpBlock" class="form-text text-muted">
-                                        Alternate start directory to use instead of "/". Supported for SFTP/FTP/HTTP
+                                        「/」の代わりに使用する代替の開始ディレクトリ。SFTP/FTP/HTTPでサポート
                                     </small>
                                 </div>
                             </div>
 
                             <div class="form-group row">
-                                <label for="idTLSUsername" class="col-sm-2 col-form-label">TLS username</label>
+                                <label for="idTLSUsername" class="col-sm-2 col-form-label">TLSユーザー名</label>
                                 <div class="col-sm-10">
                                     <select class="form-control selectpicker" id="idTLSUsername" name="tls_username" aria-describedby="tlsUsernameHelpBlock">
                                         <option value="None" {{if eq .Group.UserSettings.Filters.TLSUsername "None" }}selected{{end}}>None</option>
-                                        <option value="CommonName" {{if eq .Group.UserSettings.Filters.TLSUsername "CommonName" }}selected{{end}}>Common Name</option>
+                                        <option value="CommonName" {{if eq .Group.UserSettings.Filters.TLSUsername "CommonName" }}selected{{end}}>一般的な名前</option>
                                     </select>
                                     <small id="tlsUsernameHelpBlock" class="form-text text-muted">
-                                        Defines the TLS certificate field to use as username. Ignored if mutual TLS is disabled
+                                        ユーザー名として使用するTLS証明書フィールドを定義します。mutual TLSが無効になっている場合は無視されます
                                     </small>
                                 </div>
                             </div>
 
                             <div class="form-group row">
-                                <label for="idHooks" class="col-sm-2 col-form-label">Hooks</label>
+                                <label for="idHooks" class="col-sm-2 col-form-label">フックス</label>
                                 <div class="col-sm-10">
                                     <select class="form-control selectpicker" id="idHooks" name="hooks" multiple>
                                         <option value="external_auth_disabled" {{if .Group.UserSettings.Filters.Hooks.ExternalAuthDisabled}}selected{{end}}>
-                                            External auth disabled
+                                            外部認証が無効になっています
                                         </option>
                                         <option value="pre_login_disabled" {{if .Group.UserSettings.Filters.Hooks.PreLoginDisabled}}selected{{end}}>
-                                            Pre-login disabled
+                                            事前ログインが無効になっています
                                         </option>
                                         <option value="check_password_disabled" {{if .Group.UserSettings.Filters.Hooks.CheckPasswordDisabled}}selected{{end}}>
-                                            Check password disabled
+                                            パスワードが無効になっています
                                         </option>
                                     </select>
                                 </div>
@@ -696,9 +696,9 @@
                                 <div class="form-check">
                                     <input type="checkbox" class="form-check-input" id="idDisableFsChecks" name="disable_fs_checks"
                                     {{if .Group.UserSettings.Filters.DisableFsChecks}}checked{{end}} aria-describedby="disableFsChecksHelpBlock">
-                                    <label for="idDisableFsChecks" class="form-check-label">Disable filesystem checks</label>
+                                    <label for="idDisableFsChecks" class="form-check-label">ファイルシステムのチェックを無効にする</label>
                                     <small id="disableFsChecksHelpBlock" class="form-text text-muted">
-                                        Disable checks for existence and automatic creation of home directory and virtual folders
+                                        ホームディレクトリと仮想フォルダの存在と自動作成のチェックを無効にする
                                     </small>
                                 </div>
                             </div>
@@ -707,20 +707,20 @@
                                 <div class="form-check">
                                     <input type="checkbox" class="form-check-input" id="idAllowAPIKeyAuth" name="allow_api_key_auth"
                                     {{if .Group.UserSettings.Filters.AllowAPIKeyAuth}}checked{{end}} aria-describedby="allowAPIKeyAuthHelpBlock">
-                                    <label for="idAllowAPIKeyAuth" class="form-check-label">Allow API key authentication</label>
+                                    <label for="idAllowAPIKeyAuth" class="form-check-label">APIキー認証を許可する</label>
                                     <small id="allowAPIKeyAuthHelpBlock" class="form-text text-muted">
-                                        Allow to impersonate the associated users, in REST API, with an API key
+                                        REST APIで、APIキーを使用して、関連するユーザーになりすますことを許可する
                                     </small>
                                 </div>
                             </div>
 
                             <div class="form-group row {{if not .Group.HasExternalAuth}}d-none{{end}}">
-                                <label for="idExtAuthCacheTime" class="col-sm-2 col-form-label">External auth cache time</label>
+                                <label for="idExtAuthCacheTime" class="col-sm-2 col-form-label">外部認証キャッシュ時間</label>
                                 <div class="col-sm-10">
                                     <input type="number" min="0" class="form-control" id="idExtAuthCacheTime" name="external_auth_cache_time" placeholder=""
                                         value="{{.Group.UserSettings.Filters.ExternalAuthCacheTime}}" aria-describedby="extAuthCacheHelpBlock">
                                     <small id="extAuthCacheHelpBlock" class="form-text text-muted">
-                                        Cache time, in seconds, for users authenticated using an external auth hook. 0 means no cache
+                                        外部認証フックを使用して認証されたユーザーのキャッシュ時間(秒単位)。0はキャッシュがないことを意味します
                                     </small>
                                 </div>
                             </div>
@@ -731,7 +731,7 @@
             </div>
             <input type="hidden" name="_form_token" value="{{.CSRFToken}}">
             <div class="col-sm-12 text-right px-0">
-                <button type="submit" class="btn btn-primary mt-3 ml-3 px-5" name="form_action" value="submit">Submit</button>
+                <button type="submit" class="btn btn-primary mt-3 ml-3 px-5" name="form_action" value="submit">提出する</button>
             </div>
         </form>
     </div>

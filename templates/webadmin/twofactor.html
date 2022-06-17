@@ -1,6 +1,6 @@
 {{template "baselogin" .}}
 
-{{define "title"}}Two-Factor authentication{{end}}
+{{define "title"}}二要素認証{{end}}
 
 {{define "content"}}
                                     <div class="text-center">
@@ -15,20 +15,20 @@
                                         class="user-custom">
                                         <div class="form-group">
                                             <input type="text" class="form-control form-control-user-custom"
-                                                id="inputPasscode" name="passcode" placeholder="Authentication code" required>
+                                                id="inputPasscode" name="passcode" placeholder="認証コード" required>
                                         </div>
                                         <input type="hidden" name="_form_token" value="{{.CSRFToken}}">
                                         <button type="submit" class="btn btn-primary btn-user-custom btn-block">
-                                            Verify
+                                            検証
                                         </button>
                                     </form>
                                     <hr>
                                     <div>
-                                        <p>Open the two-factor authentication app on your device to view your authentication code and verify your identity.</p>
+                                        <p>デバイスで2要素認証アプリを開き、認証コードを表示し、身元を確認します。</p>
                                     </div>
                                     <hr>
                                     <div>
-                                        <p><strong>Having problems?</strong></p>
-                                        <p><a href="{{.RecoveryURL}}">Enter a two-factor recovery code</a></p>
+                                        <p><strong>問題がありますか?</strong></p>
+                                        <p><a href="{{.RecoveryURL}}">2 ファクタ回復コードを入力する</a></p>
                                     </div>
 {{end}}
