@@ -13,7 +13,7 @@
             <div class="card-body">
                 <h6 class="card-title font-weight-bold">SFTP/SSH server</h6>
                 <p class="card-text">
-                    ステータス: {{ if .Status.SSH.IsActive}}"始まった"{{else}}"止まった"{{end}}
+                    ステータス: {{ if .Status.SSH.IsActive}}"起動中"{{else}}"停止"{{end}}
                     {{if .Status.SSH.IsActive}}
                     <br>
                     {{range .Status.SSH.Bindings}}
@@ -21,9 +21,9 @@
                     アドレス: "{{.GetAddress}}" {{if .HasProxy}}プロキシ: オン{{end}}
                     <br>
                     {{end}}
-                    受け入れられた認証: "{{.Status.SSH.GetSupportedAuthsAsString}}"
+                    許可される認証: "{{.Status.SSH.GetSupportedAuthsAsString}}"
                     <br>
-                    受け入れられたコマンド: "{{.Status.SSH.GetSSHCommandsAsString}}"
+                    許可されるコマンド: "{{.Status.SSH.GetSSHCommandsAsString}}"
                     <br>
                     {{range .Status.SSH.HostKeys}}
                     <br>
@@ -41,7 +41,7 @@
             <div class="card-body">
                 <h6 class="card-title font-weight-bold">FTPサーバー</h6>
                 <p class="card-text">
-                    Status: {{ if .Status.FTP.IsActive}}"始まった"{{else}}"止まった"{{end}}
+                    Status: {{ if .Status.FTP.IsActive}}"起動中"{{else}}"停止"{{end}}
                     {{if .Status.FTP.IsActive}}
                     <br>
                     {{range .Status.FTP.Bindings}}
@@ -70,7 +70,7 @@
             <div class="card-body">
                 <h6 class="card-title font-weight-bold">WebDAVサーバー</h6>
                 <p class="card-text">
-                    ステータス: {{ if .Status.WebDAV.IsActive}}"始まった"{{else}}"止まった"{{end}}
+                    ステータス: {{ if .Status.WebDAV.IsActive}}"起動中"{{else}}"停止"{{end}}
                     {{if .Status.WebDAV.IsActive}}
                     <br>
                     {{range .Status.WebDAV.Bindings}}

@@ -9,3 +9,4 @@ id_rsa
 id_rsa.pub
 sftpgo.db
 sftpgo.log
+backups/backup_Sunday_0.json

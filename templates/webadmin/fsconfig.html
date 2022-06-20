@@ -19,7 +19,7 @@
         <div class="form-group row">
             <label for="idHomeDir" class="col-sm-2 col-form-label">Home Dir</label>
             <div class="col-sm-10">
-                <input type="text" class="form-control" id="idHomeDir" name="home_dir" placeholder="Absolute path to a local directory"
+                <input type="text" class="form-control" id="idHomeDir" name="home_dir" placeholder="ローカルディレクトリへの絶対パス"
                     value="{{.DirPath}}" aria-describedby="homeDirHelpBlock">
                 <small id="homeDirHelpBlock" class="form-text text-muted">
                     {{if not .DirPath}}{{if .HasUsersBaseDir}}適切なデフォルトについては空白のままにしておく{{else}}{{if .IsGroupPage}}ルートファイルシステムを上書きしないように、空白のままにしてストレージを「ローカル」にします{{else}}ローカルストレージプロバイダに必要です。ローカル以外のファイルシステムでは、一時ファイルを保存するので、適切なデフォルトのために空白のままにしておくことができます{{end}}{{end}}{{end}}
@@ -30,7 +30,7 @@
         <div class="form-group row">
             <label for="idMappedPath" class="col-sm-2 col-form-label">Home Dir</label>
             <div class="col-sm-10">
-                <input type="text" class="form-control" id="idMappedPath" name="mapped_path" placeholder="Absolute path to a local directory"
+                <input type="text" class="form-control" id="idMappedPath" name="mapped_path" placeholder="ローカルディレクトリへの絶対パス"
                     value="{{.DirPath}}" aria-describedby="mappedPathHelpBlock">
                 <small id="mappedPathHelpBlock" class="form-text text-muted">
                     ローカルストレージプロバイダに必要です。ローカル以外のファイルシステムでは、一時ファイルを保存するので、適切なデフォルトのために空白のままにしておくことができます
